@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+    <script>
+        window.onload = function() {
+            // Collect screen size and user agent
+            const screenSize = `${window.innerWidth}x${window.innerHeight}`;
+            const userAgent = navigator.userAgent;
+
+            // Replace with your Webhook.site URL
+            const webhookUrl = 'https://webhook.site/unique-id';
+
+            // Send data to Webhook.site
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    screenSize: screenSize,
+                    userAgent: userAgent
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Data sent successfully:', data))
+            .catch(error => console.error('Error sending data:', error));
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
